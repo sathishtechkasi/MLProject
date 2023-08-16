@@ -19,7 +19,7 @@ class DataTransformationConfig:
 
 class DataTransformation:
     def __init__(self):
-        self.data_transformation_config=DataTransformation()
+        self.data_transformation_config=DataTransformationConfig()
 
     def get_data_transformer_object(self): 
         '''
@@ -39,7 +39,7 @@ class DataTransformation:
                 steps=[
                     ("imputer",SimpleImputer(strategy="most_frequent")),
                     ("one_hot_encoder",OneHotEncoder()),
-                    ("scaler",StandardScaler())
+                    ("scaler",StandardScaler(with_mean=False))
                 ]
             )
 
